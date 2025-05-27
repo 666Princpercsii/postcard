@@ -1,240 +1,125 @@
 <!DOCTYPE html>
-
 <html lang="ru">
-
 <head>
-
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Свадебное приглашение</title>
-
-
-
-
-
-
-
 <!-- Внешние стили -->
-
 <style>
 @font-face {
-  font-family: 'Snell Roundhand';
-  src: url('font/Roundhand.ttf') format('truetype');
+  font-family: 'MonAmourTwo-Medium';
+  src: url('font/MonAmourTwo.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-
-  
-
    body {
-
   margin: 0;
-
   padding: 0;
-
-  font-family: 'Snell Roundhand'; /* Используем выбранный шрифт */
-
+  font-family: 'MonAmourTwo-Medium'; /* Используем выбранный шрифт */
   background: #278cf1;
-
    color: #050505;
-   
-
   }
-
-
 
   /* Фоновое изображение без затемнения */
-
   body::before {
-
     content: "";
-
     position: fixed;
-
     top:0; left:0; right:0; bottom:0;
-
-    background-image: url('https://balthazar.club/uploads/posts/2023-09/1694468961_balthazar-club-p-svadebnii-fon-vkontakte-26.jpg');
-
+    background-image: url('https://i.ibb.co/W4nMFjRp/Pngtree-wedding-invitation-poster-background-1591574.png');
     background-size: cover;
-
     background-position: center;
-
     opacity: 1;
-
     z-index: -1;
-
   }
-
-
 
   h1 {
-
     text-align:center;
-
     padding:20px 10px;
-
     font-size:2.5em;
-
     font-weight: normal;
-
     color:#080808;
-
   }
-
-
 
   .section {
-
     max-width: 1000px;
-
     margin: 20px auto;
-
     background-color: rgba(133, 187, 241, 0);
-
     padding:20px;
-
     border-radius:10px;
-
   }
-
-
 
   /* Фото жениха и невесты */
-
   .photos {
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:20px;
-
   }
 
-
-
   .photo-container {
-
     flex:1 1 250px;
-
     max-width:250px;
-
     position: relative;
-
   }
 
 
 
   .photo-container img {
-
     width:100%;
-
     border-radius:10px;
-
     cursor:pointer;
-
     box-shadow:0 4px 8px rgba(0,0,0,0.3);
-
     transition:.3s transform, box-shadow;
-
   }
-
-
 
   .photo-container img:hover {
-
     transform:scale(1.05);
-
     box-shadow:0 8px 16px rgba(0,0,0,0.4);
-
   }
 
-
-
  p {
-
    font-size:1.2em;
-
    line-height:1.5em;
-
 }
-
-
 
 .countdown {
-
    text-align:center; 
-
    font-size:1.8em; 
-
    font-weight:normal; 
-
    color:#000000; 
-
    margin-top:20px; 
-
 }
-
-
 
 #map {
-
    width:100%;
-
    height:400px; 
-
    border-radius: 10px;
-
    border: 2px solid rgba(0, 0, 0, 0.3);
-
 }
 
-
-
 /* Модальное окно для увеличения фото */
-
 .modal {
-
    display:none; 
-
    position:fixed; 
-
    z-index:999; 
-
    top:0; left:0; right:0; bottom:0; 
-
    background-color:#000000cc; 
-
    align-items:center; justify-content:center; 
-
 }
 
 .modal img {
-
    max-width:90%; max-height:90%; border-radius:5px; cursor:pointer;
-
 }
 
-
-
 h2 {
-
   color: #000000;
-
   margin: 14px 0;
-  
-  font-weight: normal;
 
+  font-weight: normal;
 }
 
 </style>
-
 </head>
-
 <body>
 
 
@@ -243,323 +128,162 @@ h2 {
 <h1>на свадьбу</h1>
 <h1>Александра и Ольги</h1>
 
-
-
 <!-- Детали события -->
-
 <div class="section">
-
 <h2 style="text-align:center;">♡</h2> 
-
 <h2 style="text-align:center;">Мы будем счастливы разделить с Вами радость неповторимого для нас дня –</h2> 
-
 <h2 style="text-align:center;">дня нашей свадьбы! Приглашаем присоединиться</h2> 
-
 <h2 style="text-align:center;">к нашему празднику и украсить его своим присутствием!</h2> 
-
 <h2 style="text-align:center;">♡</h2> 
-
-<h2 style="text-align:center;">Место проведения (+ тайминг)</h2>
-
-<p>Церемония регистрации состоится в 11:00</p>
-
-<p>во Дворце Бракосочетания по адресу: ул. Софии Слуцкой 1, Слуцк.</p> 
-
-<p>Свадебное торжество будет проходить в ресторане "Voyage Hall"</p>   
-
-<p><strong>по адресу:</strong> улица Парижской Коммуны, 27</p>  
-
-<p><strong>Дата и время:</strong> <span id="eventDate">15 августа 2025 года, в 17:00</span></p>
-
+<h2 style="text-align:center;"><strong>Место проведения (+ тайминг)</strong></h2>
+<p>Церемония регистрации состоится в </p>
+<h2 style="text-align:center;"><strong>11:00</strong></h2>
+<p>во Дворце Бракосочетания по адресу: </p> 
+<h2 style="text-align:center;"><strong>ул. Софии Слуцкой 1, Слуцк.</strong></h2>
+<p>Свадебное торжество будет проходить в ресторане </p>
+<h2 style="text-align:center;"><strong>"Voyage Hall"</strong></h2>   
+<p>по адресу: </p>  
+<h2 style="text-align:center;"><strong>улица Парижской Коммуны, 27</strong></h2>
+<p>Дата и время:</p>  
+<h2 style="text-align:center;"><span id="eventDate"><strong>15 августа 2025 года, в 17:00</strong></span></h2>
 <h2 style="text-align:center;">♡</h2> 
-
 <h2 style="text-align:center;">В знак вашего теплого пожелания и приятного сюрприза для нас,</h2> 
-
 <h2 style="text-align:center;">мы будем очень благодарны, если вместо традиционных цветов</h2> 
-
 <h2 style="text-align:center;">вы решите подарить нам комнатное или садовое растение,</h2> 
-
 <h2 style="text-align:center;">сладости или изысканную бутылочку вина.</h2>
-
 <h2 style="text-align:center;">♡</h2> 
-
 <p><strong>Стиль:</strong> Классическая романтическая свадьба</p>
-
 <p><strong>Контактный телефон жениха:</strong> +375292566518</p>
-
 </div>
-
-
 
 <!-- Отсчет времени -->
-
 <div class="section countdown" id="countdownTimer"></div>
 
-
-
 <!-- Место проведения (карта) -->
-
 <div class="section">
-
 <h2 style="text-align:center;">Место проведения</h2>
-
 <div id="map"></div>
-
 </div>
-
-
 
 <!-- Модальное окно для увеличения фото -->
-
 <div class="modal" id="imageModal">
-
  <img src="" alt="">
-
 </div>
 
-
-
 <!-- Подключение API Яндекс.Карт -->
-
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
-
-
 <!-- Скрипты -->
-
 <script>
-
 // Инициализация Яндекс.Карт
-
 function initMap() {
 
   if (typeof ymaps === 'undefined') {
-
     console.error('Яндекс.Карты не загружены');
-
     document.getElementById('map').innerHTML = '<div style="text-align: center; padding: 50px; color: #666;">Карта временно недоступна</div>';
-
     return;
-
   }
 
-
-
   ymaps.ready(function () {
-
     // Координаты: Слуцк, ул. Софии Слуцкой 1 (ЗАГС)
-
     const registryCoords = [53.027604, 27.555446];
-
     // Координаты: Слуцк, улица Парижской Коммуны, 27 (ресторан)
-
     const receptionCoords = [53.031244, 27.546631];
 
-
-
     const map = new ymaps.Map("map", {
-
       center: registryCoords, // Центрируем на ЗАГСе
-
       zoom: 13,
-
       controls: ['routeEditor', 'geolocationControl', 'zoomControl']
-
     });
-
-
 
     // Метка для ЗАГСа
-
     const registryPlacemark = new ymaps.Placemark(registryCoords, {
-
       balloonContentHeader: 'Церемония регистрации',
-
       balloonContentBody: '<strong>11:00</strong><br/>Дворец Бракосочетания<br/>ул. Софии Слуцкой 1, Слуцк',
-
       balloonContentFooter: 'Начало в 11:00',
-
       hintContent: 'ЗАГС - 11:00'
-
     }, {
-
       iconLayout: 'default#image',
-
       iconImageHref: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNGRjY5QjQiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+',
-
       iconImageSize: [32, 32],
-
       iconImageOffset: [-16, -32]
-
     });
-
-
 
     // Метка для ресторана
-
     const receptionPlacemark = new ymaps.Placemark(receptionCoords, {
-
       balloonContentHeader: 'Свадебное торжество',
-
       balloonContentBody: '<strong>17:00</strong><br/>Ресторан "Voyage Hall"<br/>Слуцк, улица Парижской Коммуны, 27',
-
       balloonContentFooter: 'Банкет в 17:00',
-
       hintContent: 'Банкет - 17:00'
-
     }, {
-
       iconLayout: 'default#image',
-
       iconImageHref: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNGRkQ3MDAiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTQuMDkgNy4yNkwyMCA4TDE0LjA5IDE2Ljc0TDEyIDIyTDkuOTEgMTYuNzRMNCA4TDkuOTEgNy4yNkwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cjwvc3ZnPg==',
-
       iconImageSize: [32, 32],
-
       iconImageOffset: [-16, -32]
-
     });
-
-
 
     map.geoObjects.add(registryPlacemark);
-
     map.geoObjects.add(receptionPlacemark);
 
-
-
     // Автоматическое позиционирование карты для показа обеих точек
-
     map.setBounds(map.geoObjects.getBounds(), {
-
       checkZoomRange: true,
-
       zoomMargin: 50
-
     });
-
   });
-
 }
-
-
 
 // Обработка фотографий
-
 const photosContainer = document.getElementById('photosContainer');
-
-
-
 function addPhoto(url) {
-
  if (!url) return;
-
-
-
  const img = document.createElement('img');
-
  img.src = url || 'https://via.placeholder.com/250x150?text=Нет+фото';
-
  img.alt = "Фотография";
-
  img.onclick = () => openModal(img.src);
-
  if (photosContainer) photosContainer.appendChild(img);
-
 }
-
-
 
 // Открытие модального окна
-
 const modal = document.getElementById('imageModal');
-
 const modalImg = modal.querySelector('img');
-
-
-
 function openModal(src) {
-
  modal.style.display='flex';
-
  modalImg.src=src;
-
 }
-
-
 
 modal.onclick = () => { modal.style.display='none'; }
 
-
-
 // Отсчет времени до события
-
 const eventDateStr = "2025-08-15T17:00";
-
 const countdownDiv = document.getElementById('countdownTimer');
-
-
-
 function updateCountdown() {
-
  const now = new Date();
-
  const eventDate = new Date(eventDateStr);
-
  const diffMs = eventDate - now;
-
-
-
  if (diffMs <= 0) {
-
    countdownDiv.innerHTML = 'Событие началось!';
-
  } else {
-
    const days = Math.floor(diffMs / (1000*60*60*24));
-
    const hours = Math.floor((diffMs / (1000*60*60)) % 24);
-
    const minutes = Math.floor((diffMs / (1000*60)) % 60);
-
    const seconds = Math.floor((diffMs / 1000) % 60);
-
-   
-
    countdownDiv.innerHTML = `До события осталось ${days} дн ${hours} ч ${minutes} мин ${seconds} сек`;
-
  }
-
 }
 
-
-
 // Обновлять каждую секунду
-
 setInterval(updateCountdown, 1000);
 
-
-
 // Инициализация при загрузке страницы
-
 window.onload = function() {
-
   updateCountdown();
-
   initMap();
-
 }; 
-
 </script>
-
-
-
 <h2 style="text-align:center;">♡</h2> 
-
 <h2 style="text-align:center;">All we need is love</h2> 
-
 <h1 style="text-align:center;">∞</h1> 
-
-
 
 </body>
 
