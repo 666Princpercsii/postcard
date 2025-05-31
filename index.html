@@ -161,16 +161,16 @@ h2 {
 <h2 style="text-align:center;" class="fade-in">к нашему празднику и украсить его своим присутствием!</h2> 
 <h2 style="text-align:center;" class="fade-in">♡</h2> 
 <h2 style="text-align:center;" class="fade-in"><strong>Место проведения (+ тайминг)</strong></h2>
-<p class="fade-in">Церемония регистрации состоится в </p>
-<h2 style="text-align:center;" class="fade-in"><strong>11:00</strong></h2>
+<p class="fade-in">Церемония регистрации состоится</p>
+<h2 style="text-align:center;" class="fade-in"><strong>16 августа 2025 года, в 15:00</strong></h2>
 <p class="fade-in">во Дворце Бракосочетания по адресу: </p> 
 <h2 style="text-align:center;" class="fade-in"><strong>ул. Софии Слуцкой 1, Слуцк.</strong></h2>
 <p class="fade-in">Свадебное торжество будет проходить в ресторане </p>
-<h2 style="text-align:center;" class="fade-in"><strong>"Voyage Hall"</strong></h2>   
+<h2 style="text-align:center;" class="fade-in"><strong>"Bar Leman"</strong></h2>   
 <p class="fade-in">по адресу: </p>  
-<h2 style="text-align:center;" class="fade-in"><strong>улица Парижской Коммуны, 27</strong></h2>
+<h2 style="text-align:center;" class="fade-in"><strong>Слуцк, ул. 14 Партизан, 107</strong></h2>
 <p>Дата и время:</p>  
-<h2 style="text-align:center;" class="fade-in"><span id="eventDate"><strong>15 августа 2025 года, в 17:00</strong></span></h2>
+<h2 style="text-align:center;" class="fade-in"><span id="eventDate"><strong>16 августа 2025 года, в 17:30</strong></span></h2>
 <h2 style="text-align:center;" class="fade-in">♡</h2> 
 <h2 style="text-align:center;" class="fade-in">В знак вашего теплого пожелания и приятного сюрприза для нас,</h2> 
 <h2 style="text-align:center;" class="fade-in">мы будем очень благодарны, если вместо традиционных цветов</h2> 
@@ -212,8 +212,8 @@ function initMap() {
   ymaps.ready(function () {
     // Координаты: Слуцк, ул. Софии Слуцкой 1 (ЗАГС)
     const registryCoords = [53.027604, 27.555446];
-    // Координаты: Слуцк, улица Парижской Коммуны, 27 (ресторан)
-    const receptionCoords = [53.031244, 27.546631];
+    // Координаты: Слуцк, ул. 14 Партизан, 107 (ресторан)
+    const receptionCoords = [53.050675, 27.548711];
 
     const map = new ymaps.Map("map", {
       center: registryCoords, // Центрируем на ЗАГСе
@@ -224,9 +224,9 @@ function initMap() {
     // Метка для ЗАГСа
     const registryPlacemark = new ymaps.Placemark(registryCoords, {
       balloonContentHeader: 'Церемония регистрации',
-      balloonContentBody: '<strong>11:00</strong><br/>Дворец Бракосочетания<br/>ул. Софии Слуцкой 1, Слуцк',
-      balloonContentFooter: 'Начало в 11:00',
-      hintContent: 'ЗАГС - 11:00'
+      balloonContentBody: '<strong>15:00</strong><br/>Дворец Бракосочетания<br/>ул. Софии Слуцкой 1, Слуцк',
+      balloonContentFooter: 'Начало в 15:00',
+      hintContent: 'ЗАГС - 15:00'
     }, {
       iconLayout: 'default#image',
       iconImageHref: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNGRjY5QjQiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+',
@@ -237,9 +237,9 @@ function initMap() {
     // Метка для ресторана
     const receptionPlacemark = new ymaps.Placemark(receptionCoords, {
       balloonContentHeader: 'Свадебное торжество',
-      balloonContentBody: '<strong>17:00</strong><br/>Ресторан "Voyage Hall"<br/>Слуцк, улица Парижской Коммуны, 27',
-      balloonContentFooter: 'Банкет в 17:00',
-      hintContent: 'Банкет - 17:00'
+      balloonContentBody: '<strong>17:30</strong><br/>Ресторан "Bar Leman"<br/>Слуцк, ул. 14 Партизан, 107',
+      balloonContentFooter: 'Банкет в 17:30',
+      hintContent: 'Банкет - 17:30'
     }, {
       iconLayout: 'default#image',
       iconImageHref: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNGRkQ3MDAiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTQuMDkgNy4yNkwyMCA4TDE0LjA5IDE2Ljc0TDEyIDIyTDkuOTEgMTYuNzRMNCA4TDkuOTEgNy4yNkwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cjwvc3ZnPg==',
@@ -280,7 +280,7 @@ function openModal(src) {
 modal.onclick = () => { modal.style.display='none'; }
 
 // Отсчет времени до события
-const eventDateStr = "2025-08-15T17:00";
+const eventDateStr = "2025-08-16T15:00";
 const countdownDiv = document.getElementById('countdownTimer');
 function updateCountdown() {
  const now = new Date();
@@ -309,6 +309,31 @@ window.onload = function() {
 <h2 style="text-align:center;">♡</h2> 
 <h2 style="text-align:center;">All we need is love</h2> 
 <h1 style="text-align:center;">∞</h1> 
+
+<script>
+  // Создаем элемент для подписи
+  const signature = document.createElement('div');
+
+  // Устанавливаем содержимое подписи
+  signature.innerText = '© DarkPrinc Persii 2025';
+
+  // Применяем стили для позиционирования в нижнем правом углу
+  Object.assign(signature.style, {
+    position: 'fixed',
+    bottom: '10px',
+    right: '10px',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // полупрозрачный фон
+    color: '#fff', // цвет текста
+    padding: '5px 10px',
+    borderRadius: '5px',
+    fontSize: '14px',
+    zIndex: '1000', // чтобы было поверх других элементов
+    fontFamily: 'Arial, sans-serif'
+  });
+
+  // Добавляем элемент на страницу
+  document.body.appendChild(signature);
+</script>
 
 </body>
 
