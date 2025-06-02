@@ -6,6 +6,19 @@
 <title>Свадебное приглашение</title>
 <!-- Внешние стили -->
  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+ <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let link = document.querySelector("link[rel~='icon']");
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+      }
+      link.href = 'https://i.ibb.co/zhzM2sgk/Copilot-20250529-121003.png'; // укажите свой путь
+    });
+  </script>
+
 <style>
 @font-face {
   font-family: 'MonAmourTwo-Medium';
