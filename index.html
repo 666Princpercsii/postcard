@@ -57,7 +57,7 @@
   }
 
   /* Стили для модального окна */
-  .modal {
+  .modal1 {
     display: none; /* по умолчанию скрыто */
     position: fixed;
     z-index: 1000; /* поверх всего */
@@ -72,7 +72,7 @@
   }
 
   /* Контейнер для содержимого модального окна */
-  .modal-content {
+  .modal1-content {
     background-color: #fff; /* цвет фона содержимого */
     padding: 20px;
     border-radius: 8px;
@@ -249,18 +249,18 @@ h2 {
 <span id="word"><h2 style="text-align:center;" class="fade-in">вы решите подарить нам комнатное или садовое растение,</h2></span>
 
 <!-- Модальное окно -->
-<div id="imageModal" class="modal">
-  <div class="modal-content">
+<div id="imageModal1" class="modal1">
+  <div class="modal1-content">
       <img id="popupImage" src="" alt="Картинка" />
-      <button class="close-btn" id="closeModal">Закрыть</button>
+      <button class="close-btn" id="closeModal1">Закрыть</button>
   </div>
 </div>
 
 <script>
 const wordSpan = document.getElementById('word');
-const modal = document.getElementById('imageModal');
+const modal1 = document.getElementById('imageModal1');
 const popupImage = document.getElementById('popupImage');
-const closeBtn = document.getElementById('closeModal');
+const closeBtn = document.getElementById('closeModal1');
 
 // Обработчик клика по слову
 wordSpan.addEventListener('click', () => {
@@ -281,19 +281,19 @@ wordSpan.addEventListener('click', () => {
      // Указываем URL картинки
      popupImage.src = 'https://i.ibb.co/QjJk3t7L/photo-5325808238324740544-y.jpg/1280x1280'; // замените на свой URL
      // Показываем модальное окно
-     modal.style.display = 'flex';
+     modal1.style.display = 'flex';
    });
 });
 
 // Обработчик закрытия модалки
-document.getElementById('closeModal').addEventListener('click', () => {
-   modal.style.display = 'none';
+document.getElementById('closeModal1').addEventListener('click', () => {
+   modal1.style.display = 'none';
 });
 
 // Также можно закрывать по клику вне содержимого
 window.addEventListener('click', (event) => {
-   if (event.target === modal) {
-     modal.style.display = 'none';
+   if (event.target === modal1) {
+     modal1.style.display = 'none';
    }
 });
 </script>
@@ -400,7 +400,7 @@ function openModal(src) {
  modalImg.src=src;
 }
 
-modal.onclick = () => { modal.style.display='none'; }
+modal.onclick = () => { modal1.style.display='none'; }
 
 // Отсчет времени до события
 const eventDateStr = "2025-08-16T15:00";
