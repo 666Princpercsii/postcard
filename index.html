@@ -45,6 +45,63 @@
     font-size: 1em;
   }
 }
+/* Стиль для кнопки, чтобы он соответствовал сайту */
+  #wordButton {
+    font-family: inherit;
+    font-size: 1em;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent; /* или ваш стиль */
+    color: inherit;
+  }
+
+  /* Стили для модального окна */
+  .modal {
+    display: none; /* по умолчанию скрыто */
+    position: fixed;
+    z-index: 1000; /* поверх всего */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* прокрутка при необходимости */
+    background-color: rgba(0,0,0,0.5); /* полупрозрачный фон */
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Контейнер для содержимого модального окна */
+  .modal-content {
+    background-color: #fff; /* цвет фона содержимого */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 80%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Стиль для картинки внутри модалки */
+  #popupImage {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Кнопка закрытия модалки */
+  .close-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius:4px;
+    border:none;
+    background-color:#007BFF; /* стиль кнопки закрытия */
+    color:#fff; 
+      font-family: inherit; 
+      font-size:1em; 
+}
+
 /* Эффекты появления элементов (анимации) */
 .fade-in {
     opacity:0;
@@ -187,7 +244,60 @@ h2 {
 <h2 style="text-align:center;" class="fade-in">♡</h2> 
 <h2 style="text-align:center;" class="fade-in">В знак вашего теплого пожелания и приятного сюрприза для нас,</h2> 
 <h2 style="text-align:center;" class="fade-in">мы будем очень благодарны, если вместо традиционных цветов</h2> 
-<h2 style="text-align:center;" class="fade-in">вы решите подарить нам комнатное или садовое растение,</h2> 
+
+<!-- Изначальный элемент -->
+<span id="word"><h2 style="text-align:center;" class="fade-in">вы решите подарить нам комнатное или садовое растение,</h2></span>
+
+<!-- Модальное окно -->
+<div id="imageModal" class="modal">
+  <div class="modal-content">
+      <img id="popupImage" src="" alt="Картинка" />
+      <button class="close-btn" id="closeModal">Закрыть</button>
+  </div>
+</div>
+
+<script>
+const wordSpan = document.getElementById('word');
+const modal = document.getElementById('imageModal');
+const popupImage = document.getElementById('popupImage');
+const closeBtn = document.getElementById('closeModal');
+
+// Обработчик клика по слову
+wordSpan.addEventListener('click', () => {
+  
+  // Создаем кнопку
+  const button = document.createElement('button');
+  
+  // Восстанавливаем стиль и текст
+  button.id = 'wordButton';
+  button.textContent = wordSpan.textContent;
+
+  // Заменяем элемент
+  wordSpan.replaceWith(button);
+
+  
+   // Обработчик для кнопки
+   button.addEventListener('click', () => {
+     // Указываем URL картинки
+     popupImage.src = 'https://i.ibb.co/QjJk3t7L/photo-5325808238324740544-y.jpg/1280x1280'; // замените на свой URL
+     // Показываем модальное окно
+     modal.style.display = 'flex';
+   });
+});
+
+// Обработчик закрытия модалки
+document.getElementById('closeModal').addEventListener('click', () => {
+   modal.style.display = 'none';
+});
+
+// Также можно закрывать по клику вне содержимого
+window.addEventListener('click', (event) => {
+   if (event.target === modal) {
+     modal.style.display = 'none';
+   }
+});
+</script>
+
 <h2 style="text-align:center;" class="fade-in">сладости или изысканную бутылочку вина.</h2>
 <h2 style="text-align:center;" class="fade-in">♡</h2> 
 <p class="fade-in"><strong>Стиль:</strong> Классическая романтическая свадьба</p>
