@@ -248,6 +248,14 @@ h2 {
 <!-- Изначальный элемент -->
 <span id="word"><h2 style="text-align:center;" class="fade-in">вы решите подарить нам комнатное или садовое растение,</h2></span>
 
+<script>
+  const spanElement = document.getElementById('word');
+  const h2Element = spanElement.querySelector('h2');
+  // Добавляем подчеркнутый стиль и цвет
+  h2Element.style.textDecoration = 'underline';
+  h2Element.style.color = 'blue';
+</script>
+
 <!-- Модальное окно -->
 <div id="imageModal1" class="modal1">
   <div class="modal1-content">
