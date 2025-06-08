@@ -45,16 +45,121 @@
     font-size: 1em;
   }
 }
-/* Стиль для кнопки, чтобы он соответствовал сайту */
+/* Стиль для кнопки */
+  span#word.fade-in {
+    font-family: inherit;
+    font-size: 1em;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #007BFF;
+  }
+
+  span#word.fade-in:hover {
+    color: #0056b3;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+
   #wordButton {
     font-family: inherit;
     font-size: 1em;
     padding: 8px 16px;
     cursor: pointer;
     border: none;
-    background-color: transparent; /* или ваш стиль */
-    color: inherit;
+    background-color: transparent;
+    color: #007BFF;
   }
+
+   #wordButton:hover {
+    color: #0056b3;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+
+  /*Qr-стиль*/
+
+.qr-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 60px auto 40px auto;
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.qr-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.qr-description {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.qr-container {
+  display: inline-block;
+  position: relative;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.qr-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.qr-code-image {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.qr-code-image:hover {
+  border-color: #007BFF;
+  transform: scale(1.05);
+}
+
+/* Анимация мерцания для привлечения внимания */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+.qr-container.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .qr-section {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+  
+  .qr-code-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .qr-description {
+    font-size: 1em;
+  }
+}
 
   /* Стили для модального окна */
   .modal1 {
@@ -239,71 +344,60 @@ h2 {
 <h2 style="text-align:center;" class="fade-in"><strong>"Bar Leman"</strong></h2>   
 <p class="fade-in">по адресу: </p>  
 <h2 style="text-align:center;" class="fade-in"><strong>Слуцк, ул. 14 Партизан, 107</strong></h2>
-<p>Дата и время:</p>  
+<p class="fade-in">Дата и время:</p>  
 <h2 style="text-align:center;" class="fade-in"><span id="eventDate"><strong>16 августа 2025 года, в 17:30</strong></span></h2>
 <h2 style="text-align:center;" class="fade-in">♡</h2> 
 <h2 style="text-align:center;" class="fade-in">В знак вашего теплого пожелания и приятного сюрприза для нас,</h2> 
 <h2 style="text-align:center;" class="fade-in">мы будем очень благодарны, если вместо традиционных цветов</h2> 
 
 <!-- Изначальный элемент -->
-<span id="word"><h2 style="text-align:center;" class="fade-in">вы решите подарить нам комнатное или садовое растение,</h2></span>
-
-<script>
-  const spanElement = document.getElementById('word');
-  const h2Element = spanElement.querySelector('h2');
-  // Добавляем подчеркнутый стиль и цвет
-  h2Element.style.textDecoration = 'underline';
-  h2Element.style.color = 'blue';
-</script>
+<h2 style="text-align: center;">
+  <span id="word" class="fade-in">
+    вы решите подарить нам комнатное или садовое растение,
+  </span>
+</h2>
 
 <!-- Модальное окно -->
-<div id="imageModal1" class="modal1">
+<div id="imageModal1" class="modal1" style="display: none;">
   <div class="modal1-content">
-      <img id="popupImage" src="" alt="Картинка" />
-      <button class="close-btn" id="closeModal1">Закрыть</button>
+    <img id="popupImage" src="" alt="Картинка" />
+    <button class="close-btn" id="closeModal1">Закрыть</button>
   </div>
 </div>
 
 <script>
-const wordSpan = document.getElementById('word');
-const modal1 = document.getElementById('imageModal1');
-const popupImage = document.getElementById('popupImage');
-const closeBtn = document.getElementById('closeModal1');
+  const wordSpan = document.getElementById('word');
+  const modal1 = document.getElementById('imageModal1');
+  const popupImage = document.getElementById('popupImage');
+  const closeBtn = document.getElementById('closeModal1');
 
-// Обработчик клика по слову
-wordSpan.addEventListener('click', () => {
-  
-  // Создаем кнопку
-  const button = document.createElement('button');
-  
-  // Восстанавливаем стиль и текст
-  button.id = 'wordButton';
-  button.textContent = wordSpan.textContent;
+  wordSpan.addEventListener('click', () => {
+    // Показываем модальное окно сразу
+    popupImage.src = 'https://i.ibb.co/QjJk3t7L/photo-5325808238324740544-y.jpg/1280x1280';
+    modal1.style.display = 'flex';
 
-  // Заменяем элемент
-  wordSpan.replaceWith(button);
+    // Создаем кнопку
 
-  
-   // Обработчик для кнопки
-   button.addEventListener('click', () => {
-     // Указываем URL картинки
-     popupImage.src = 'https://i.ibb.co/QjJk3t7L/photo-5325808238324740544-y.jpg/1280x1280'; // замените на свой URL
-     // Показываем модальное окно
-     modal1.style.display = 'flex';
-   });
-});
+    // Обработчик для новой кнопки
+    button.addEventListener('click', () => {
+      popupImage.src = 'https://i.ibb.co/QjJk3t7L/photo-5325808238324740544-y.jpg/1280x1280';
+      modal1.style.display = 'flex';
+    });
 
-// Обработчик закрытия модалки
-document.getElementById('closeModal1').addEventListener('click', () => {
-   modal1.style.display = 'none';
-});
+    // Заменяем span на кнопку
+    wordSpan.replaceWith(button);
+  });
 
-// Также можно закрывать по клику вне содержимого
-window.addEventListener('click', (event) => {
-   if (event.target === modal1) {
-     modal1.style.display = 'none';
-   }
-});
+  // Закрытие модального окна
+  closeBtn.addEventListener('click', () => {
+    modal1.style.display = 'none';
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal1) {
+      modal1.style.display = 'none';
+    }
+  });
 </script>
 
 <h2 style="text-align:center;" class="fade-in">сладости или изысканную бутылочку вина.</h2>
@@ -441,6 +535,52 @@ window.onload = function() {
  <h2 style="text-align:center;"> три недели до предстоящего мероприятия.</h2> 
 <h2 style="text-align:center;">♡</h2> 
 <h2 style="text-align:center;">All we need is love</h2> 
+<!-- QR-код секция -->
+<div class="qr-wrapper fade-in">
+  <div class="qr-description">
+    Нажмите на QR-код для перехода в наш телеграм-канал
+  </div>
+
+  <div id="qrContainer" class="qr-container">
+    <img id="qrCodeImage" 
+         class="qr-code-image" 
+         src="qr-code.png" 
+         alt="QR-код для телеграм-канала"
+         onclick="openTelegramChannel()" />
+  </div>
+</div>
+
+<script>
+function openTelegramChannel() {
+  // Замените на ссылку твоего телеграм-канала
+  const telegramLink = 'https://t.me/+lu5hY7s6pXA5NDcy';
+  window.open(telegramLink, '_blank');
+}
+
+// Добавляем эффект пульсации при загрузке страницы
+window.addEventListener('load', function() {
+  const qrContainer = document.getElementById('qrContainer');
+  
+  // Добавляем пульсацию на 6 секунд для привлечения внимания
+  qrContainer.classList.add('pulse');
+  
+  setTimeout(function() {
+    qrContainer.classList.remove('pulse');
+  }, 6000);
+});
+
+// Дополнительный эффект при наведении
+const qrImage = document.getElementById('qrCodeImage');
+
+qrImage.addEventListener('mouseenter', function() {
+  this.style.filter = 'brightness(1.1)';
+});
+
+qrImage.addEventListener('mouseleave', function() {
+  this.style.filter = 'brightness(1)';
+});
+</script>
+  
 <h1 style="text-align:center;">∞</h1> 
 
 <script>
